@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<style>
+
+
+
+  /* QUOTES */
+      
+  q {
+              quotes: '"' '"' "'" "'";
+            }
+            q::before {
+              content: open-quote;
+            }
+            q::after {
+              content: close-quote;
+            } */
+      
+      .myquote {
+          font-size: 50px;
+          text-align: center;
+          padding-top: 60px;
+      }
+      
+      .myquote {
+          margin: 100px auto;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 2px 3px #ccc;
+          border: 1px solid #eee;
+          padding: 10px;
+          box-sizing: border-box;
+          font-size: 40px;
+      } 
+
+@media screen and (max-width:800px){
+  .change{
+    height: 400px;
+  }
+}
+
+
+</style>
+<div class="container-fluid px-0">
+    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+         
+<img src="/static/img/1.jpg" class="change"  height="650px" width="100%"  class="d-block w-100" alt="...">
+<div class="carousel-caption d-none d-md-block">
+  <h4>HOPE U LIKE !</h4>
+</div>
+</div>
+</div>
+<div>
+<br>
+
+
+<h5 class="text-center" style="color: #ffff;">HOPE U LIKE !</h5>
+<section class="section-quote m-0" id="quote">
+  <div class="myquote m-0"> 
+    {% for results in blogs %}
+    <img src="{{results.pic.url }}  " width="300px" height="300px" class="pictars m-2" alt="...">
+      <h4 style="color: chocolate;">{{results.title}}</h4>
+      <h5 style="color: darkgoldenrod; text-align: left;" class="mar">{{results.descrip}}</h5> <hr> <br>   
+  {% endfor %}
+  </div>
+  </section>
+
+
+
+{% endblock body %}
